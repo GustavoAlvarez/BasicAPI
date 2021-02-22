@@ -35,7 +35,7 @@ extension HTTPWebService {
     }
     
     
-    func callPaginated<T>(endpoint: APICall, paginationState: PaginationState<T>, method: HTTPMethod = .get, headers: [HTTPHeader]? = nil, body: Data? = nil, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) {
+    func callPaginated<T>(endpoint: APICall, paginationState: PaginationState<T>, method: HTTPMethod = .get, headers: [HTTPHeader]? = nil, body: Data? = nil, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) {
         do {
             let request = try endpoint.createUrlRequest(baseURL: baseURL, paginationState: paginationState, method: method, headers: headers, body: body)
             
@@ -48,7 +48,7 @@ extension HTTPWebService {
                 switch result {
                 case .success(let data):
                     do {
-                        let pagedObject = try PKMPagedObject<T>.decode(from: data)
+                        let pagedObject = try PagedObject<T>.decode(from: data)
                         pagedObject.update(with: paginationState, currentUrl: url.absoluteString)
                         completion(.success(pagedObject))
                     }
@@ -83,14 +83,14 @@ extension HTTPWebService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func callPaginated<Value>(endpoint: APICall, paginationState: PaginationState<Value>, method: HTTPMethod = .get, headers: [HTTPHeader]? = nil, body: Data? = nil) -> AnyPublisher<PKMPagedObject<Value>, Error> where Value: Decodable {
+    func callPaginated<Value>(endpoint: APICall, paginationState: PaginationState<Value>, method: HTTPMethod = .get, headers: [HTTPHeader]? = nil, body: Data? = nil) -> AnyPublisher<PagedObject<Value>, Error> where Value: Decodable {
         do {
             let request = try endpoint.createUrlRequest(baseURL: baseURL, paginationState: paginationState, method: method, headers: headers, body: body)
             return session
                 .dataTaskPublisher(for: request)
                 .requestJSON()
         } catch let error {
-            return Fail<PKMPagedObject<Value>, Error>(error: error).eraseToAnyPublisher()
+            return Fail<PagedObject<Value>, Error>(error: error).eraseToAnyPublisher()
         }
     }
 }

@@ -11,136 +11,136 @@ import Foundation
 
 
 protocol PKMPokemonService: HTTPWebService {
-    func fetchAbilityList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMAbility
+    func fetchAbilityList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMAbility
     func fetchAbility(_ abilityID: Int, completion: @escaping (_ result: Result<PKMAbility, Error>) -> Void)
     func fetchAbility(_ abilityName: String, completion: @escaping (_ result: Result<PKMAbility, Error>) -> Void)
-    func fetchCharacteristicList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMCharacteristic
+    func fetchCharacteristicList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMCharacteristic
     func fetchCharacteristic(_ characteristicID: Int, completion: @escaping (_ result: Result<PKMCharacteristic, Error>) -> Void)
-    func fetchEggGroupList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMEggGroup
+    func fetchEggGroupList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMEggGroup
     func fetchEggGroup(_ eggGroupID: Int, completion: @escaping (_ result: Result<PKMEggGroup, Error>) -> Void)
     func fetchEggGroup(_ eggGroupName: String, completion: @escaping (_ result: Result<PKMEggGroup, Error>) -> Void)
-    func fetchGenderList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMGender
+    func fetchGenderList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMGender
     func fetchGender(_ genderID: Int, completion: @escaping (_ result: Result<PKMGender, Error>) -> Void)
     func fetchGender(_ genderName: String, completion: @escaping (_ result: Result<PKMGender, Error>) -> Void)
-    func fetchGrowthRateList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMGrowthRate
+    func fetchGrowthRateList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMGrowthRate
     func fetchGrowthRate(_ growthRateID: Int, completion: @escaping (_ result: Result<PKMGrowthRate, Error>) -> Void)
     func fetchGrowthRate(_ growthRateName: String, completion: @escaping (_ result: Result<PKMGrowthRate, Error>) -> Void)
-    func fetchNatureList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMNature
+    func fetchNatureList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMNature
     func fetchNature(_ natureID: Int, completion: @escaping (_ result: Result<PKMNature, Error>) -> Void)
     func fetchNature(_ natureName: String, completion: @escaping (_ result: Result<PKMNature, Error>) -> Void)
-    func fetchPokeathlonStatList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPokeathlonStat
+    func fetchPokeathlonStatList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPokeathlonStat
     func fetchPokeathlonStat(_ pokeathlonStatID: Int, completion: @escaping (_ result: Result<PKMPokeathlonStat, Error>) -> Void)
     func fetchPokeathlonStat(_ pokeathlonStatName: String, completion: @escaping (_ result: Result<PKMPokeathlonStat, Error>) -> Void)
-    func fetchPokemonList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPokemon
+    func fetchPokemonList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPokemon
     func fetchPokemon(_ pokemonID: Int, completion: @escaping (_ result: Result<PKMPokemon, Error>) -> Void)
     func fetchPokemon(_ pokemonName: String, completion: @escaping (_ result: Result<PKMPokemon, Error>) -> Void)
-    func fetchPokemonColorList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPokemonColor
+    func fetchPokemonColorList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPokemonColor
     func fetchPokemonColor(_ pokemonColorID: Int, completion: @escaping (_ result: Result<PKMPokemonColor, Error>) -> Void)
     func fetchPokemonColor(_ pokemonColorName: String, completion: @escaping (_ result: Result<PKMPokemonColor, Error>) -> Void)
-    func fetchPokemonFormList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPokemonForm
+    func fetchPokemonFormList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPokemonForm
     func fetchPokemonForm(_ pokemonFormID: Int, completion: @escaping (_ result: Result<PKMPokemonForm, Error>) -> Void)
     func fetchPokemonForm(_ pokemonFormName: String, completion: @escaping (_ result: Result<PKMPokemonForm, Error>) -> Void)
-    func fetchPokemonHabitatList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPokemonHabitat
+    func fetchPokemonHabitatList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPokemonHabitat
     func fetchPokemonHabitat(_ pokemonHabitatID: Int, completion: @escaping (_ result: Result<PKMPokemonHabitat, Error>) -> Void)
     func fetchPokemonHabitat(_ pokemonHabitatName: String, completion: @escaping (_ result: Result<PKMPokemonHabitat, Error>) -> Void)
-    func fetchPokemonShapeList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPokemonShape
+    func fetchPokemonShapeList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPokemonShape
     func fetchPokemonShape(_ pokemonShapeID: Int, completion: @escaping (_ result: Result<PKMPokemonShape, Error>) -> Void)
     func fetchPokemonShape(_ pokemonShapeName: String, completion: @escaping (_ result: Result<PKMPokemonShape, Error>) -> Void)
-    func fetchPokemonSpeciesList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPokemonSpecies
+    func fetchPokemonSpeciesList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPokemonSpecies
     func fetchPokemonSpecies(_ pokemonSpeciesID: Int, completion: @escaping (_ result: Result<PKMPokemonSpecies, Error>) -> Void)
     func fetchPokemonSpecies(_ pokemonSpeciesName: String, completion: @escaping (_ result: Result<PKMPokemonSpecies, Error>) -> Void)
-    func fetchStatList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMStat
+    func fetchStatList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMStat
     func fetchStat(_ statID: Int, completion: @escaping (_ result: Result<PKMStat, Error>) -> Void)
     func fetchStat(_ statName: String, completion: @escaping (_ result: Result<PKMStat, Error>) -> Void)
-    func fetchTypeList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMType
+    func fetchTypeList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMType
     func fetchType(_ typeID: Int, completion: @escaping (_ result: Result<PKMType, Error>) -> Void)
     func fetchType(_ typeName: String, completion: @escaping (_ result: Result<PKMType, Error>) -> Void)
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchAbilityList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMAbility
+    func fetchAbilityList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMAbility
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchAbility(_ abilityID: Int) -> AnyPublisher<PKMAbility, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchAbility(_ abilityName: String) -> AnyPublisher<PKMAbility, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchCharacteristicList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMCharacteristic
+    func fetchCharacteristicList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMCharacteristic
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchCharacteristic(_ characteristicID: Int) -> AnyPublisher<PKMCharacteristic, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchEggGroupList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMEggGroup
+    func fetchEggGroupList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMEggGroup
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchEggGroup(_ eggGroupID: Int) -> AnyPublisher<PKMEggGroup, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchEggGroup(_ eggGroupName: String) -> AnyPublisher<PKMEggGroup, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchGenderList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMGender
+    func fetchGenderList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMGender
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchGender(_ genderID: Int) -> AnyPublisher<PKMGender, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchGender(_ genderName: String) -> AnyPublisher<PKMGender, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchGrowthRateList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMGrowthRate
+    func fetchGrowthRateList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMGrowthRate
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchGrowthRate(_ growthRateID: Int) -> AnyPublisher<PKMGrowthRate, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchGrowthRate(_ growthRateName: String) -> AnyPublisher<PKMGrowthRate, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchNatureList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMNature
+    func fetchNatureList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMNature
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchNature(_ natureID: Int) -> AnyPublisher<PKMNature, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchNature(_ natureName: String) -> AnyPublisher<PKMNature, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchPokeathlonStatList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPokeathlonStat
+    func fetchPokeathlonStatList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPokeathlonStat
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPokeathlonStat(_ pokeathlonStatID: Int) -> AnyPublisher<PKMPokeathlonStat, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPokeathlonStat(_ pokeathlonStatName: String) -> AnyPublisher<PKMPokeathlonStat, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchPokemonList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPokemon
+    func fetchPokemonList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPokemon
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPokemon(_ pokemonID: Int) -> AnyPublisher<PKMPokemon, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPokemon(_ pokemonName: String) -> AnyPublisher<PKMPokemon, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchPokemonColorList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPokemonColor
+    func fetchPokemonColorList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPokemonColor
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPokemonColor(_ pokemonColorID: Int) -> AnyPublisher<PKMPokemonColor, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPokemonColor(_ pokemonColorName: String) -> AnyPublisher<PKMPokemonColor, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchPokemonFormList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPokemonForm
+    func fetchPokemonFormList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPokemonForm
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPokemonForm(_ pokemonFormID: Int) -> AnyPublisher<PKMPokemonForm, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPokemonForm(_ pokemonFormName: String) -> AnyPublisher<PKMPokemonForm, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchPokemonHabitatList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPokemonHabitat
+    func fetchPokemonHabitatList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPokemonHabitat
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPokemonHabitat(_ pokemonHabitatID: Int) -> AnyPublisher<PKMPokemonHabitat, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPokemonHabitat(_ pokemonHabitatName: String) -> AnyPublisher<PKMPokemonHabitat, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchPokemonShapeList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPokemonShape
+    func fetchPokemonShapeList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPokemonShape
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPokemonShape(_ pokemonShapeID: Int) -> AnyPublisher<PKMPokemonShape, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPokemonShape(_ pokemonShapeName: String) -> AnyPublisher<PKMPokemonShape, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchPokemonSpeciesList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPokemonSpecies
+    func fetchPokemonSpeciesList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPokemonSpecies
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPokemonSpecies(_ pokemonSpeciesID: Int) -> AnyPublisher<PKMPokemonSpecies, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPokemonSpecies(_ pokemonSpeciesName: String) -> AnyPublisher<PKMPokemonSpecies, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchStatList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMStat
+    func fetchStatList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMStat
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchStat(_ statID: Int) -> AnyPublisher<PKMStat, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchStat(_ statName: String) -> AnyPublisher<PKMStat, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchTypeList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMType
+    func fetchTypeList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMType
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchType(_ typeID: Int) -> AnyPublisher<PKMType, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
@@ -301,7 +301,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Abilities list
      */
-    public func fetchAbilityList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMAbility {
+    public func fetchAbilityList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMAbility {
         callPaginated(endpoint: API.fetchAbilityList, paginationState: paginationState, completion: completion)
     }
     
@@ -333,7 +333,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Characteristics list
      */
-    public func fetchCharacteristicList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMCharacteristic {
+    public func fetchCharacteristicList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMCharacteristic {
         callPaginated(endpoint: API.fetchCharacteristicList, paginationState: paginationState, completion: completion)
     }
     
@@ -353,7 +353,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Egg Group list
      */
-    public func fetchEggGroupList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMEggGroup {
+    public func fetchEggGroupList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMEggGroup {
         callPaginated(endpoint: API.fetchEggGroupList, paginationState: paginationState, completion: completion)
     }
     
@@ -385,7 +385,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Genders list
      */
-    public func fetchGenderList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMGender {
+    public func fetchGenderList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMGender {
         callPaginated(endpoint: API.fetchGenderList, paginationState: paginationState, completion: completion)
     }
     
@@ -417,7 +417,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Growth Rate list
      */
-    public func fetchGrowthRateList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMGrowthRate {
+    public func fetchGrowthRateList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMGrowthRate {
         callPaginated(endpoint: API.fetchGrowthRateList, paginationState: paginationState, completion: completion)
     }
     
@@ -449,7 +449,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Nature list
      */
-    public func fetchNatureList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMNature {
+    public func fetchNatureList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMNature {
         callPaginated(endpoint: API.fetchNatureList, paginationState: paginationState, completion: completion)
     }
     
@@ -480,7 +480,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Pokeathlon Stat list
      */
-    public func fetchPokeathlonStatList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPokeathlonStat {
+    public func fetchPokeathlonStatList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPokeathlonStat {
         callPaginated(endpoint: API.fetchPokeathlonStatList, paginationState: paginationState, completion: completion)
     }
     
@@ -512,7 +512,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Pokemon list
      */
-    public func fetchPokemonList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPokemon {
+    public func fetchPokemonList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPokemon {
         callPaginated(endpoint: API.fetchPokemonList, paginationState: paginationState, completion: completion)
     }
     
@@ -544,7 +544,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Pokemon Color list
      */
-    public func fetchPokemonColorList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPokemonColor {
+    public func fetchPokemonColorList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPokemonColor {
         callPaginated(endpoint: API.fetchPokemonColorList, paginationState: paginationState, completion: completion)
     }
     
@@ -576,7 +576,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Pokemon Form list
      */
-    public func fetchPokemonFormList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPokemonForm {
+    public func fetchPokemonFormList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPokemonForm {
         callPaginated(endpoint: API.fetchPokemonFormList, paginationState: paginationState, completion: completion)
     }
     
@@ -608,7 +608,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Pokemon Habitat list
      */
-    public func fetchPokemonHabitatList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPokemonHabitat {
+    public func fetchPokemonHabitatList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPokemonHabitat {
         callPaginated(endpoint: API.fetchPokemonHabitatList, paginationState: paginationState, completion: completion)
     }
     
@@ -640,7 +640,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Pokemon Shape list
      */
-    public func fetchPokemonShapeList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPokemonShape {
+    public func fetchPokemonShapeList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPokemonShape {
         callPaginated(endpoint: API.fetchPokemonShapeList, paginationState: paginationState, completion: completion)
     }
     
@@ -672,7 +672,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Pokemon Species list
      */
-    public func fetchPokemonSpeciesList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPokemonSpecies {
+    public func fetchPokemonSpeciesList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPokemonSpecies {
         callPaginated(endpoint: API.fetchPokemonSpeciesList, paginationState: paginationState, completion: completion)
     }
     
@@ -704,7 +704,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Stat list
      */
-    public func fetchStatList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMStat {
+    public func fetchStatList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMStat {
         callPaginated(endpoint: API.fetchStatList, paginationState: paginationState, completion: completion)
     }
     
@@ -736,7 +736,7 @@ public struct PokemonService: PKMPokemonService {
     /**
      Fetch Type list
      */
-    public func fetchTypeList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMType {
+    public func fetchTypeList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMType {
         callPaginated(endpoint: API.fetchTypeList, paginationState: paginationState, completion: completion)
     }
     
@@ -771,7 +771,7 @@ public struct PokemonService: PKMPokemonService {
 
 extension PokemonService {
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchAbilityList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMAbility {
+    public func fetchAbilityList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMAbility {
         callPaginated(endpoint: API.fetchAbilityList, paginationState: paginationState)
     }
     
@@ -789,7 +789,7 @@ extension PokemonService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchCharacteristicList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMCharacteristic {
+    public func fetchCharacteristicList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMCharacteristic {
         callPaginated(endpoint: API.fetchCharacteristicList, paginationState: paginationState)
     }
     
@@ -801,7 +801,7 @@ extension PokemonService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchEggGroupList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMEggGroup {
+    public func fetchEggGroupList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMEggGroup {
         callPaginated(endpoint: API.fetchEggGroupList, paginationState: paginationState)
     }
     
@@ -819,7 +819,7 @@ extension PokemonService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchGenderList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMGender {
+    public func fetchGenderList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMGender {
         callPaginated(endpoint: API.fetchGenderList, paginationState: paginationState)
     }
     
@@ -837,7 +837,7 @@ extension PokemonService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchGrowthRateList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMGrowthRate {
+    public func fetchGrowthRateList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMGrowthRate {
         callPaginated(endpoint: API.fetchGrowthRateList, paginationState: paginationState)
     }
     
@@ -855,7 +855,7 @@ extension PokemonService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchNatureList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMNature {
+    public func fetchNatureList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMNature {
         callPaginated(endpoint: API.fetchNatureList, paginationState: paginationState)
     }
     
@@ -873,7 +873,7 @@ extension PokemonService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchPokeathlonStatList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPokeathlonStat {
+    public func fetchPokeathlonStatList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPokeathlonStat {
         callPaginated(endpoint: API.fetchPokeathlonStatList, paginationState: paginationState)
     }
     
@@ -891,7 +891,7 @@ extension PokemonService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchPokemonList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPokemon {
+    public func fetchPokemonList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPokemon {
         callPaginated(endpoint: API.fetchPokemonList, paginationState: paginationState)
     }
     
@@ -909,7 +909,7 @@ extension PokemonService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchPokemonColorList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPokemonColor {
+    public func fetchPokemonColorList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPokemonColor {
         callPaginated(endpoint: API.fetchPokemonColorList, paginationState: paginationState)
     }
     
@@ -927,7 +927,7 @@ extension PokemonService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchPokemonFormList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPokemonForm {
+    public func fetchPokemonFormList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPokemonForm {
         callPaginated(endpoint: API.fetchPokemonFormList, paginationState: paginationState)
     }
     
@@ -945,7 +945,7 @@ extension PokemonService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchPokemonHabitatList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPokemonHabitat {
+    public func fetchPokemonHabitatList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPokemonHabitat {
         callPaginated(endpoint: API.fetchPokemonHabitatList, paginationState: paginationState)
     }
     
@@ -963,7 +963,7 @@ extension PokemonService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchPokemonShapeList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPokemonShape {
+    public func fetchPokemonShapeList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPokemonShape {
         callPaginated(endpoint: API.fetchPokemonShapeList, paginationState: paginationState)
     }
     
@@ -981,7 +981,7 @@ extension PokemonService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchPokemonSpeciesList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPokemonSpecies {
+    public func fetchPokemonSpeciesList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPokemonSpecies {
         callPaginated(endpoint: API.fetchPokemonSpeciesList, paginationState: paginationState)
     }
     
@@ -999,7 +999,7 @@ extension PokemonService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchStatList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMStat {
+    public func fetchStatList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMStat {
         callPaginated(endpoint: API.fetchStatList, paginationState: paginationState)
     }
     
@@ -1017,7 +1017,7 @@ extension PokemonService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchTypeList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMType {
+    public func fetchTypeList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMType {
         callPaginated(endpoint: API.fetchTypeList, paginationState: paginationState)
     }
     

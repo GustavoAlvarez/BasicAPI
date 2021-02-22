@@ -11,18 +11,18 @@ import Foundation
 
 
 protocol PKMEvolutionService: HTTPWebService {
-    func fetchEvolutionChainList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMEvolutionChain
+    func fetchEvolutionChainList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMEvolutionChain
     func fetchEvolutionChain(_ evolutionChainID: Int, completion: @escaping (_ result: Result<PKMEvolutionChain, Error>) -> Void)
-    func fetchEvolutionTriggerList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMEvolutionTrigger
+    func fetchEvolutionTriggerList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMEvolutionTrigger
     func fetchEvolutionTrigger(_ evolutionTriggerID: Int, completion: @escaping (_ result: Result<PKMEvolutionTrigger, Error>) -> Void)
     func fetchEvolutionTrigger(_ evolutionTriggerName: String, completion: @escaping (_ result: Result<PKMEvolutionTrigger, Error>) -> Void)
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchEvolutionChainList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMEvolutionChain
+    func fetchEvolutionChainList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMEvolutionChain
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchEvolutionChain(_ evolutionChainID: Int) -> AnyPublisher<PKMEvolutionChain, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchEvolutionTriggerList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMEvolutionTrigger
+    func fetchEvolutionTriggerList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMEvolutionTrigger
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchEvolutionTrigger(_ evolutionTriggerID: Int) -> AnyPublisher<PKMEvolutionTrigger, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
@@ -66,7 +66,7 @@ public struct EvolutionService: PKMEvolutionService {
     /**
      Fetch Encounter Chains list
      */
-    public func fetchEvolutionChainList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMEvolutionChain {
+    public func fetchEvolutionChainList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMEvolutionChain {
         callPaginated(endpoint: API.fetchEvolutionChainList, paginationState: paginationState, completion: completion)
     }
     
@@ -86,7 +86,7 @@ public struct EvolutionService: PKMEvolutionService {
     /**
      Fetch Encounter Triggers list
      */
-    public func fetchEvolutionTriggerList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMEvolutionTrigger {
+    public func fetchEvolutionTriggerList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMEvolutionTrigger {
         callPaginated(endpoint: API.fetchEvolutionTriggerList, paginationState: paginationState, completion: completion)
     }
     
@@ -121,7 +121,7 @@ public struct EvolutionService: PKMEvolutionService {
 
 extension EvolutionService {
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchEvolutionChainList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMEvolutionChain {
+    public func fetchEvolutionChainList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMEvolutionChain {
         callPaginated(endpoint: API.fetchEvolutionChainList, paginationState: paginationState)
     }
     
@@ -133,7 +133,7 @@ extension EvolutionService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchEvolutionTriggerList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMEvolutionTrigger {
+    public func fetchEvolutionTriggerList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMEvolutionTrigger {
         callPaginated(endpoint: API.fetchEvolutionTriggerList, paginationState: paginationState)
     }
     

@@ -11,30 +11,30 @@ import Foundation
 
 
 protocol PKMEncounterService: HTTPWebService {
-    func fetchEncounterMethodList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMEncounterMethod
+    func fetchEncounterMethodList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMEncounterMethod
     func fetchEncounterMethod(_ encounterMethodID: Int, completion: @escaping (_ result: Result<PKMEncounterMethod, Error>) -> Void)
     func fetchEncounterMethod(_ encounterMethodName: String, completion: @escaping (_ result: Result<PKMEncounterMethod, Error>) -> Void)
-    func fetchEncounterConditionList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMEncounterCondition
+    func fetchEncounterConditionList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMEncounterCondition
     func fetchEncounterCondition(_ encounterConditionID: Int, completion: @escaping (_ result: Result<PKMEncounterCondition, Error>) -> Void)
     func fetchEncounterCondition(_ encounterConditionName: String, completion: @escaping (_ result: Result<PKMEncounterCondition, Error>) -> Void)
-    func fetchEncounterConditionValueList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMEncounterConditionValue
+    func fetchEncounterConditionValueList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMEncounterConditionValue
     func fetchEncounterConditionValue(_ encounterConditionValueID: Int, completion: @escaping (_ result: Result<PKMEncounterConditionValue, Error>) -> Void)
     func fetchEncounterConditionValue(_ encounterConditionValueName: String, completion: @escaping (_ result: Result<PKMEncounterConditionValue, Error>) -> Void)
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchEncounterMethodList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMEncounterMethod
+    func fetchEncounterMethodList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMEncounterMethod
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchEncounterMethod(_ encounterMethodID: Int) -> AnyPublisher<PKMEncounterMethod, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchEncounterMethod(_ encounterMethodName: String) -> AnyPublisher<PKMEncounterMethod, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchEncounterConditionList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMEncounterCondition
+    func fetchEncounterConditionList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMEncounterCondition
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchEncounterCondition(_ encounterConditionID: Int) -> AnyPublisher<PKMEncounterCondition, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchEncounterCondition(_ encounterConditionName: String) -> AnyPublisher<PKMEncounterCondition, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchEncounterConditionValueList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMEncounterConditionValue
+    func fetchEncounterConditionValueList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMEncounterConditionValue
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchEncounterConditionValue(_ encounterConditionValueID: Int) -> AnyPublisher<PKMEncounterConditionValue, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
@@ -92,7 +92,7 @@ public struct EncounterService: PKMEncounterService {
     /**
      Fetch Encounter Methods list
      */
-    public func fetchEncounterMethodList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMEncounterMethod {
+    public func fetchEncounterMethodList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMEncounterMethod {
         callPaginated(endpoint: API.fetchEncounterMethodList, paginationState: paginationState, completion: completion)
     }
     
@@ -124,7 +124,7 @@ public struct EncounterService: PKMEncounterService {
     /**
      Fetch Encounter Conditions list
      */
-    public func fetchEncounterConditionList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMEncounterCondition {
+    public func fetchEncounterConditionList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMEncounterCondition {
         callPaginated(endpoint: API.fetchEncounterMethodList, paginationState: paginationState, completion: completion)
     }
     
@@ -156,7 +156,7 @@ public struct EncounterService: PKMEncounterService {
     /**
      Fetch Encounter Condition Values list
      */
-    public func fetchEncounterConditionValueList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMEncounterConditionValue {
+    public func fetchEncounterConditionValueList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMEncounterConditionValue {
         callPaginated(endpoint: API.fetchEncounterConditionValueList, paginationState: paginationState, completion: completion)
     }
     
@@ -191,7 +191,7 @@ public struct EncounterService: PKMEncounterService {
 
 extension EncounterService {
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchEncounterMethodList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMEncounterMethod {
+    public func fetchEncounterMethodList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMEncounterMethod {
         callPaginated(endpoint: API.fetchEncounterMethodList, paginationState: paginationState)
     }
     
@@ -209,7 +209,7 @@ extension EncounterService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchEncounterConditionList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMEncounterCondition {
+    public func fetchEncounterConditionList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMEncounterCondition {
         callPaginated(endpoint: API.fetchEncounterConditionList, paginationState: paginationState)
     }
     
@@ -227,7 +227,7 @@ extension EncounterService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchEncounterConditionValueList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMEncounterConditionValue {
+    public func fetchEncounterConditionValueList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMEncounterConditionValue {
         callPaginated(endpoint: API.fetchEncounterConditionValueList, paginationState: paginationState)
     }
     

@@ -11,66 +11,66 @@ import Foundation
 
 
 protocol PKMMoveService: HTTPWebService {
-    func fetchMoveList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMove
+    func fetchMoveList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMove
     func fetchMove(_ moveID: Int, completion: @escaping (_ result: Result<PKMMove, Error>) -> Void)
     func fetchMove(_ moveName: String, completion: @escaping (_ result: Result<PKMMove, Error>) -> Void)
-    func fetchMoveAilmentList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMoveAilment
+    func fetchMoveAilmentList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMoveAilment
     func fetchMoveAilment(_ moveAilmentID: Int, completion: @escaping (_ result: Result<PKMMoveAilment, Error>) -> Void)
     func fetchMoveAilment(_ moveAilmentName: String, completion: @escaping (_ result: Result<PKMMoveAilment, Error>) -> Void)
-    func fetchMoveBattleStyleList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMoveBattleStyle
+    func fetchMoveBattleStyleList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMoveBattleStyle
     func fetchMoveBattleStyle(_ moveBattleStyleID: Int, completion: @escaping (_ result: Result<PKMMoveBattleStyle, Error>) -> Void)
     func fetchMoveBattleStyle(_ moveBattleStyleName: String, completion: @escaping (_ result: Result<PKMMoveBattleStyle, Error>) -> Void)
-    func fetchMoveCategoryList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMoveCategory
+    func fetchMoveCategoryList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMoveCategory
     func fetchMoveCategory(_ moveCategoryID: Int, completion: @escaping (_ result: Result<PKMMoveCategory, Error>) -> Void)
     func fetchMoveCategory(_ moveCategoryName: String, completion: @escaping (_ result: Result<PKMMoveCategory, Error>) -> Void)
-    func fetchMoveDamageClassList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMoveDamageClass
+    func fetchMoveDamageClassList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMoveDamageClass
     func fetchMoveDamageClass(_ moveDamageClassID: Int, completion: @escaping (_ result: Result<PKMMoveDamageClass, Error>) -> Void)
     func fetchMoveDamageClass(_ moveDamageClassName: String, completion: @escaping (_ result: Result<PKMMoveDamageClass, Error>) -> Void)
-    func fetchMoveLearnMethodList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMoveLearnMethod
+    func fetchMoveLearnMethodList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMoveLearnMethod
     func fetchMoveLearnMethod(_ moveLearnMethodID: Int, completion: @escaping (_ result: Result<PKMMoveLearnMethod, Error>) -> Void)
     func fetchMoveLearnMethod(_ moveLearnMethodName: String, completion: @escaping (_ result: Result<PKMMoveLearnMethod, Error>) -> Void)
-    func fetchMoveTargetList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMoveTarget
+    func fetchMoveTargetList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMoveTarget
     func fetchMoveTarget(_ moveTargetID: Int, completion: @escaping (_ result: Result<PKMMoveTarget, Error>) -> Void)
     func fetchMoveTarget(_ moveTargetName: String, completion: @escaping (_ result: Result<PKMMoveTarget, Error>) -> Void)
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchMoveList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMove
+    func fetchMoveList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMove
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchMove(_ moveID: Int) -> AnyPublisher<PKMMove, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchMove(_ moveName: String) -> AnyPublisher<PKMMove, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchMoveAilmentList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMoveAilment
+    func fetchMoveAilmentList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMoveAilment
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchMoveAilment(_ moveAilmentID: Int) -> AnyPublisher<PKMMoveAilment, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchMoveAilment(_ moveAilmentName: String) -> AnyPublisher<PKMMoveAilment, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchMoveBattleStyleList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMoveBattleStyle
+    func fetchMoveBattleStyleList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMoveBattleStyle
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchMoveBattleStyle(_ moveBattleStyleID: Int) -> AnyPublisher<PKMMoveBattleStyle, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchMoveBattleStyle(_ moveBattleStyleName: String) -> AnyPublisher<PKMMoveBattleStyle, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchMoveCategoryList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMoveCategory
+    func fetchMoveCategoryList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMoveCategory
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchMoveCategory(_ moveCategoryID: Int) -> AnyPublisher<PKMMoveCategory, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchMoveCategory(_ moveCategoryName: String) -> AnyPublisher<PKMMoveCategory, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchMoveDamageClassList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMoveDamageClass
+    func fetchMoveDamageClassList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMoveDamageClass
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchMoveDamageClass(_ moveDamageClassID: Int) -> AnyPublisher<PKMMoveDamageClass, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchMoveDamageClass(_ moveDamageClassName: String) -> AnyPublisher<PKMMoveDamageClass, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchMoveLearnMethodList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMoveLearnMethod
+    func fetchMoveLearnMethodList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMoveLearnMethod
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchMoveLearnMethod(_ moveLearnMethodID: Int) -> AnyPublisher<PKMMoveLearnMethod, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchMoveLearnMethod(_ moveLearnMethodName: String) -> AnyPublisher<PKMMoveLearnMethod, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchMoveTargetList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMoveTarget
+    func fetchMoveTargetList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMoveTarget
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchMoveTarget(_ moveTargetID: Int) -> AnyPublisher<PKMMoveTarget, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
@@ -162,7 +162,7 @@ public struct MoveService: PKMMoveService {
     /**
      Fetch Moves list
      */
-    public func fetchMoveList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMove {
+    public func fetchMoveList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMove {
         callPaginated(endpoint: API.fetchMoveList, paginationState: paginationState, completion: completion)
     }
     
@@ -194,7 +194,7 @@ public struct MoveService: PKMMoveService {
     /**
      Fetch Moves Ailments list
      */
-    public func fetchMoveAilmentList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMoveAilment {
+    public func fetchMoveAilmentList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMoveAilment {
         callPaginated(endpoint: API.fetchMoveAilmentList, paginationState: paginationState, completion: completion)
     }
     
@@ -226,7 +226,7 @@ public struct MoveService: PKMMoveService {
     /**
      Fetch Moves Battle Styles list
      */
-    public func fetchMoveBattleStyleList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMoveBattleStyle {
+    public func fetchMoveBattleStyleList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMoveBattleStyle {
         callPaginated(endpoint: API.fetchMoveBattleStyleList, paginationState: paginationState, completion: completion)
     }
     
@@ -258,7 +258,7 @@ public struct MoveService: PKMMoveService {
     /**
      Fetch Moves Categories list
      */
-    public func fetchMoveCategoryList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMoveCategory {
+    public func fetchMoveCategoryList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMoveCategory {
         callPaginated(endpoint: API.fetchMoveCategoryList, paginationState: paginationState, completion: completion)
     }
     
@@ -290,7 +290,7 @@ public struct MoveService: PKMMoveService {
     /**
      Fetch Moves Damage Classes list
      */
-    public func fetchMoveDamageClassList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMoveDamageClass {
+    public func fetchMoveDamageClassList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMoveDamageClass {
         callPaginated(endpoint: API.fetchMoveDamageClassList, paginationState: paginationState, completion: completion)
     }
     
@@ -322,7 +322,7 @@ public struct MoveService: PKMMoveService {
     /**
      Fetch Moves Learn Methods list
      */
-    public func fetchMoveLearnMethodList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMoveLearnMethod {
+    public func fetchMoveLearnMethodList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMoveLearnMethod {
         callPaginated(endpoint: API.fetchMoveLearnMethodList, paginationState: paginationState, completion: completion)
     }
     
@@ -354,7 +354,7 @@ public struct MoveService: PKMMoveService {
     /**
      Fetch Moves Targets list
      */
-    public func fetchMoveTargetList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMoveTarget {
+    public func fetchMoveTargetList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMoveTarget {
         callPaginated(endpoint: API.fetchMoveTargetList, paginationState: paginationState, completion: completion)
     }
     
@@ -389,7 +389,7 @@ public struct MoveService: PKMMoveService {
 
 extension MoveService {
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchMoveList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMove {
+    public func fetchMoveList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMove {
         callPaginated(endpoint: API.fetchMoveList, paginationState: paginationState)
     }
     
@@ -407,7 +407,7 @@ extension MoveService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchMoveAilmentList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMoveAilment {
+    public func fetchMoveAilmentList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMoveAilment {
         callPaginated(endpoint: API.fetchMoveAilmentList, paginationState: paginationState)
     }
     
@@ -425,7 +425,7 @@ extension MoveService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchMoveBattleStyleList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMoveBattleStyle {
+    public func fetchMoveBattleStyleList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMoveBattleStyle {
         callPaginated(endpoint: API.fetchMoveBattleStyleList, paginationState: paginationState)
     }
     
@@ -443,7 +443,7 @@ extension MoveService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchMoveCategoryList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMoveCategory {
+    public func fetchMoveCategoryList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMoveCategory {
         callPaginated(endpoint: API.fetchMoveCategoryList, paginationState: paginationState)
     }
     
@@ -461,7 +461,7 @@ extension MoveService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchMoveDamageClassList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMoveDamageClass {
+    public func fetchMoveDamageClassList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMoveDamageClass {
         callPaginated(endpoint: API.fetchMoveDamageClassList, paginationState: paginationState)
     }
     
@@ -479,7 +479,7 @@ extension MoveService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchMoveLearnMethodList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMoveLearnMethod {
+    public func fetchMoveLearnMethodList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMoveLearnMethod {
         callPaginated(endpoint: API.fetchMoveLearnMethodList, paginationState: paginationState)
     }
     
@@ -497,7 +497,7 @@ extension MoveService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchMoveTargetList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMoveTarget {
+    public func fetchMoveTargetList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMoveTarget {
         callPaginated(endpoint: API.fetchMoveTargetList, paginationState: paginationState)
     }
     

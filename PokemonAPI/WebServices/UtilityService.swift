@@ -11,12 +11,12 @@ import Foundation
 
 
 protocol PKMUtilityService: HTTPWebService {
-    func fetchLanguageList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMLanguage
+    func fetchLanguageList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMLanguage
     func fetchLanguage(_ languageID: Int, completion: @escaping (_ result: Result<PKMLanguage, Error>) -> Void)
     func fetchLanguage(_ languageName: String, completion: @escaping (_ result: Result<PKMLanguage, Error>) -> Void)
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchLanguageList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMLanguage
+    func fetchLanguageList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMLanguage
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchLanguage(_ languageID: Int) -> AnyPublisher<PKMLanguage, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
@@ -56,7 +56,7 @@ public struct UtilityService: PKMUtilityService {
     /**
      Fetch Languages list
      */
-    public func fetchLanguageList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMLanguage {
+    public func fetchLanguageList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMLanguage {
         callPaginated(endpoint: API.fetchLanuageList, paginationState: paginationState, completion: completion)
     }
     
@@ -91,7 +91,7 @@ public struct UtilityService: PKMUtilityService {
 
 extension UtilityService {
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchLanguageList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMLanguage {
+    public func fetchLanguageList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMLanguage {
         callPaginated(endpoint: API.fetchLanuageList, paginationState: paginationState)
     }
     

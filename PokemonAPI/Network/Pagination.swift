@@ -13,7 +13,7 @@ public enum PaginationState<T> {
     /// Required state the first time you call the paginated web service.
     case initial(pageLimit: Int)
     /// Used on subsequent calls to the paginated web service, getting results for that relationship.
-    case continuing(PKMPagedObject<T>, PaginationRelationship)
+    case continuing(PagedObject<T>, PaginationRelationship)
 }
 
 
@@ -30,7 +30,7 @@ public enum PaginationRelationship {
 
 
 /// Paged Object
-public class PKMPagedObject<T>: Codable {
+public class PagedObject<T>: Codable {
     enum CodingKeys: String, CodingKey {
         case count
         case next

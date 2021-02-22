@@ -11,11 +11,11 @@ import Foundation
 
 
 protocol PKMMachineService: HTTPWebService {
-    func fetchMachineList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMachine
+    func fetchMachineList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMachine
     func fetchMachine(_ machineID: Int, completion: @escaping (_ result: Result<PKMMachine, Error>) -> Void)
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchMachineList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMachine
+    func fetchMachineList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMachine
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchMachine(_ machineID: Int) -> AnyPublisher<PKMMachine, Error>
 }
@@ -47,7 +47,7 @@ public struct MachineService: PKMMachineService {
     /**
      Fetch Machines list
      */
-    public func fetchMachineList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMMachine {
+    public func fetchMachineList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMMachine {
         callPaginated(endpoint: API.fetchMachineList, paginationState: paginationState, completion: completion)
     }
     
@@ -70,7 +70,7 @@ public struct MachineService: PKMMachineService {
 
 extension MachineService {
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchMachineList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMMachine {
+    public func fetchMachineList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMMachine {
         callPaginated(endpoint: API.fetchMachineList, paginationState: paginationState)
     }
     

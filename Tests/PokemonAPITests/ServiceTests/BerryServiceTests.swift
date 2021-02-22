@@ -60,7 +60,7 @@ class BerryServiceTests: XCTestCase {
                 switch result {
                 case .success(let pagedObject):
                     do {
-                        let count = try XCTUnwrap(pagedObject.count, "The PKMPagedObject should have a count")
+                        let count = try XCTUnwrap(pagedObject.count, "The PagedObject should have a count")
                         let berry = try XCTUnwrap(pagedObject.results?.first as? PKMNamedAPIResource, "The first result should be a named resource of a berry")
                         let berryName = try XCTUnwrap(berry.name, "The berry should have a name")
                         
@@ -209,7 +209,7 @@ class BerryServiceTests: XCTestCase {
                 switch result {
                 case .success(let pagedObject):
                     do {
-                        let count = try XCTUnwrap(pagedObject.count, "The PKMPagedObject should have a count")
+                        let count = try XCTUnwrap(pagedObject.count, "The PagedObject should have a count")
                         let berryFirmness = try XCTUnwrap(pagedObject.results?.first as? PKMNamedAPIResource, "The first result should be a named resource of a berry firmness")
                         let berryFirmnessName = try XCTUnwrap(berryFirmness.name, "The berry firmness should have a name")
                         
@@ -358,7 +358,7 @@ class BerryServiceTests: XCTestCase {
                 switch result {
                 case .success(let pagedObject):
                     do {
-                        let count = try XCTUnwrap(pagedObject.count, "The PKMPagedObject should have a count")
+                        let count = try XCTUnwrap(pagedObject.count, "The PagedObject should have a count")
                         let berryFlavor = try XCTUnwrap(pagedObject.results?.first as? PKMNamedAPIResource, "The first result should be a named resource of a berry flavor")
                         let berryFlavorName = try XCTUnwrap(berryFlavor.name, "The berry flavor should have a name")
                         

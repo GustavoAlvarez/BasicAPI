@@ -13,30 +13,30 @@ import Foundation
 // MARK: - Protocol
 
 public protocol PKMBerryService: HTTPWebService {
-    func fetchBerryList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMBerry
+    func fetchBerryList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMBerry
     func fetchBerry(_ berryID: Int, completion: @escaping (_ result: Result<PKMBerry, Error>) -> Void)
     func fetchBerry(_ berryName: String, completion: @escaping (_ result: Result<PKMBerry, Error>) -> Void)
-    func fetchBerryFirmnessList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMBerryFirmness
+    func fetchBerryFirmnessList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMBerryFirmness
     func fetchBerryFirmness(_ berryFirmnessID: Int, completion: @escaping (_ result: Result<PKMBerryFirmness, Error>) -> Void)
     func fetchBerryFirmness(_ berryFirmnessName: String, completion: @escaping (_ result: Result<PKMBerryFirmness, Error>) -> Void)
-    func fetchBerryFlavorList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMBerryFlavor
+    func fetchBerryFlavorList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMBerryFlavor
     func fetchBerryFlavor(_ berryFlavorID: Int, completion: @escaping (_ result: Result<PKMBerryFlavor, Error>) -> Void)
     func fetchBerryFlavor(_ berryFlavorName: String, completion: @escaping (_ result: Result<PKMBerryFlavor, Error>) -> Void)
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchBerryList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMBerry
+    func fetchBerryList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMBerry
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchBerry(_ berryID: Int) -> AnyPublisher<PKMBerry, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchBerry(_ berryName: String) -> AnyPublisher<PKMBerry, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchBerryFirmnessList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMBerryFirmness
+    func fetchBerryFirmnessList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMBerryFirmness
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchBerryFirmness(_ berryFirmnessID: Int) -> AnyPublisher<PKMBerryFirmness, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchBerryFirmness(_ berryFirmnessName: String) -> AnyPublisher<PKMBerryFirmness, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchBerryFlavorList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMBerryFlavor
+    func fetchBerryFlavorList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMBerryFlavor
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchBerryFlavor(_ berryFlavorID: Int) -> AnyPublisher<PKMBerryFlavor, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
@@ -92,7 +92,7 @@ public struct BerryService: PKMBerryService {
     /**
      Fetch Berry list
      */
-    public func fetchBerryList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMBerry {
+    public func fetchBerryList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMBerry {
         callPaginated(endpoint: API.fetchBerryList, paginationState: paginationState, completion: completion)
     }
     
@@ -124,7 +124,7 @@ public struct BerryService: PKMBerryService {
     /**
      Fetch Berry Firmness list
      */
-    public func fetchBerryFirmnessList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMBerryFirmness {
+    public func fetchBerryFirmnessList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMBerryFirmness {
         callPaginated(endpoint: API.fetchBerryFirmnessList, paginationState: paginationState, completion: completion)
     }
     
@@ -156,7 +156,7 @@ public struct BerryService: PKMBerryService {
     /**
      Fetch Berry Flavors list
      */
-    public func fetchBerryFlavorList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMBerryFlavor {
+    public func fetchBerryFlavorList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMBerryFlavor {
         callPaginated(endpoint: API.fetchBerryFlavorList, paginationState: paginationState, completion: completion)
     }
     
@@ -191,7 +191,7 @@ public struct BerryService: PKMBerryService {
 
 extension BerryService {
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchBerryList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMBerry {
+    public func fetchBerryList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMBerry {
         callPaginated(endpoint: API.fetchBerryList, paginationState: paginationState)
     }
     
@@ -206,7 +206,7 @@ extension BerryService {
     }
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchBerryFirmnessList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMBerryFirmness {
+    public func fetchBerryFirmnessList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMBerryFirmness {
         callPaginated(endpoint: API.fetchBerryFirmnessList, paginationState: paginationState)
     }
     
@@ -221,7 +221,7 @@ extension BerryService {
     }
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchBerryFlavorList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMBerryFlavor {
+    public func fetchBerryFlavorList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMBerryFlavor {
         callPaginated(endpoint: API.fetchBerryFlavorList, paginationState: paginationState)
     }
     

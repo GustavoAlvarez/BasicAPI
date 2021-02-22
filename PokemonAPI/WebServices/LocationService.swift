@@ -11,33 +11,33 @@ import Foundation
 
 
 protocol PKMLocationService: HTTPWebService {
-    func fetchLocationList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMLocation
+    func fetchLocationList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMLocation
     func fetchLocation(_ locationID: Int, completion: @escaping (_ result: Result<PKMLocation, Error>) -> Void)
-    func fetchLocationAreaList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMLocationArea
+    func fetchLocationAreaList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMLocationArea
     func fetchLocationArea(_ locationAreaID: Int, completion: @escaping (_ result: Result<PKMLocationArea, Error>) -> Void)
-    func fetchPalParkAreaList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPalParkArea
+    func fetchPalParkAreaList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPalParkArea
     func fetchPalParkArea(_ palParkAreaID: Int, completion: @escaping (_ result: Result<PKMPalParkArea, Error>) -> Void)
     func fetchPalParkArea(_ palParkAreaName: String, completion: @escaping (_ result: Result<PKMPalParkArea, Error>) -> Void)
-    func fetchRegionList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMRegion
+    func fetchRegionList<T>(paginationState: PaginationState<T>, completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMRegion
     func fetchRegion(_ regionID: Int, completion: @escaping (_ result: Result<PKMRegion, Error>) -> Void)
     func fetchRegion(_ regionName: String, completion: @escaping (_ result: Result<PKMRegion, Error>) -> Void)
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchLocationList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMLocation
+    func fetchLocationList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMLocation
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchLocation(_ locationID: Int) -> AnyPublisher<PKMLocation, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchLocationAreaList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMLocationArea
+    func fetchLocationAreaList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMLocationArea
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchLocationArea(_ locationAreaID: Int) -> AnyPublisher<PKMLocationArea, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchPalParkAreaList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPalParkArea
+    func fetchPalParkAreaList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPalParkArea
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPalParkArea(_ palParkAreaID: Int) -> AnyPublisher<PKMPalParkArea, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchPalParkArea(_ palParkAreaName: String) -> AnyPublisher<PKMPalParkArea, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    func fetchRegionList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMRegion
+    func fetchRegionList<T>(paginationState: PaginationState<T>) -> AnyPublisher<PagedObject<T>, Error> where T: PKMRegion
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
     func fetchRegion(_ regionID: Int) -> AnyPublisher<PKMRegion, Error>
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
@@ -95,7 +95,7 @@ public struct LocationService: PKMLocationService {
     /**
      Fetch Locations list
      */
-    public func fetchLocationList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMLocation {
+    public func fetchLocationList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMLocation {
         callPaginated(endpoint: API.fetchLocationList, paginationState: paginationState, completion: completion)
     }
     
@@ -115,7 +115,7 @@ public struct LocationService: PKMLocationService {
     /**
      Fetch Location Area list
      */
-    public func fetchLocationAreaList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMLocationArea {
+    public func fetchLocationAreaList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMLocationArea {
         callPaginated(endpoint: API.fetchLocationAreaList, paginationState: paginationState, completion: completion)
     }
     
@@ -135,7 +135,7 @@ public struct LocationService: PKMLocationService {
     /**
      Fetch Pal Park Areas list
      */
-    public func fetchPalParkAreaList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMPalParkArea {
+    public func fetchPalParkAreaList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMPalParkArea {
         callPaginated(endpoint: API.fetchPalParkAreaList, paginationState: paginationState, completion: completion)
     }
     
@@ -167,7 +167,7 @@ public struct LocationService: PKMLocationService {
     /**
      Fetch Regions list
      */
-    public func fetchRegionList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PKMPagedObject<T>, Error>) -> Void) where T: PKMRegion {
+    public func fetchRegionList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20), completion: @escaping (_ result: Result<PagedObject<T>, Error>) -> Void) where T: PKMRegion {
         callPaginated(endpoint: API.fetchRegionList, paginationState: paginationState, completion: completion)
     }
     
@@ -202,7 +202,7 @@ public struct LocationService: PKMLocationService {
 
 extension LocationService {
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchLocationList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMLocation {
+    public func fetchLocationList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMLocation {
         callPaginated(endpoint: API.fetchLocationList, paginationState: paginationState)
     }
     
@@ -214,7 +214,7 @@ extension LocationService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchLocationAreaList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMLocationArea {
+    public func fetchLocationAreaList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMLocationArea {
         callPaginated(endpoint: API.fetchLocationAreaList, paginationState: paginationState)
     }
     
@@ -226,7 +226,7 @@ extension LocationService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchPalParkAreaList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMPalParkArea {
+    public func fetchPalParkAreaList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMPalParkArea {
         callPaginated(endpoint: API.fetchPalParkAreaList, paginationState: paginationState)
     }
     
@@ -244,7 +244,7 @@ extension LocationService {
     
     
     @available(OSX 10.15, iOS 13, tvOS 13.0, watchOS 6.0, *)
-    public func fetchRegionList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PKMPagedObject<T>, Error> where T: PKMRegion {
+    public func fetchRegionList<T>(paginationState: PaginationState<T> = .initial(pageLimit: 20)) -> AnyPublisher<PagedObject<T>, Error> where T: PKMRegion {
         callPaginated(endpoint: API.fetchRegionList, paginationState: paginationState)
     }
     
